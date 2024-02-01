@@ -4,7 +4,7 @@ const fs = require("fs");
 const csvParser = require("csv-parser");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 app.use(cors());
 
@@ -29,7 +29,7 @@ const downsampleData = (data, threshold) => {
 };
 
 app.get("/api/graph-data", (req, res) => {
-  const downsampleThreshold = 1000;
+  const downsampleThreshold = 200;
 
   const results = [];
   fs.createReadStream("dataset.csv")
